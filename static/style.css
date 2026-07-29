@@ -1,0 +1,23 @@
+body{
+
+font-family:Arial;
+
+width:500px;
+
+margin:auto;
+
+}
+
+#chatbox{
+
+height:400px;
+
+overflow:auto;
+
+border:1px solid gray;
+
+padding:20px;
+
+margin-bottom:10px;
+
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Intellect ChatBot</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h2>Intellect Computers Chatbot</h2>
+
+<div id="chatbox"></div>
+
+<input type="text" id="msg">
+
+<button onclick="send()">Send</button>
+
+<script>
+
+async function send(){
+
+let msg=document.getElementById("msg").value;
+
+let res=await fetch("/chat",{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+message:msg
+
+})
+
+});
+
+let data=await res.json();
+
+document.getElementById("chatbox").innerHTML+=
+
+"<p><b>You:</b>"+msg+"</p>";
+
+document.getElementById("chatbox").innerHTML+=
+
+"<p><b>Bot:</b>"+data.reply+"</p>";
+
+}
+
+</script>
+
+</body>
+
+</html>
